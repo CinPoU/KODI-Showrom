@@ -1,2 +1,2 @@
 # KODI-Showrom
-Bowse and launch games in Kodi
+Browse and launch games in Kodi
