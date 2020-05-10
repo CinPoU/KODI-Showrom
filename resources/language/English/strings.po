@@ -1,0 +1,85 @@
+# Kodi Media Center language file
+# Addon Name: ShowRom
+# Addon id: script.games.showrom
+# Addon Provider: CinPoU
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: cinpou\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "#30001"
+msgid "ShowRom"
+msgstr "ShowRom"
+
+#
+#Settings
+#
+
+msgctxt "#30002"
+msgid "General"
+msgstr "General"
+
+msgctxt "#30020"
+msgid "Roms Directory Path"
+msgstr "Roms Directory Path"
+
+msgctxt "#30021"
+msgid "Media Directory Name"
+msgstr "Media Directory Name"
+
+msgctxt "#30022"
+msgid "Games Region"
+msgstr "Games Region"
+
+msgctxt "#30220"
+msgid "Europe"
+msgstr "Europe"
+
+msgctxt "#30221"
+msgid "USA"
+msgstr "USA"
+
+msgctxt "#30222"
+msgid "Japan"
+msgstr "Japan"
+
+msgctxt "#30023"
+msgid "Main menu style"
+msgstr "Main menu style"
+
+msgctxt "#30230"
+msgid "Horizontal"
+msgstr "Horizontal"
+
+msgctxt "#30231"
+msgid "Circular"
+msgstr "Circular"
+
+msgctxt "#30024"
+msgid "Console style"
+msgstr "Console style"
+
+msgctxt "#30240"
+msgid "Horizontal"
+msgstr "Horizontal"
+
+msgctxt "#30241"
+msgid "Circular"
+msgstr "Circular"
+
+msgctxt "#30242"
+msgid "List"
+msgstr "List"
+
+msgctxt "#30025"
+msgid "Last Played History"
+msgstr "Last Played History"
+
+msgctxt "#30026"
+msgid "Show Favorites Item on Front Page"
+msgstr "Show Favorites Item on Front Page"
+
+msgctxt "#30027"
+msgid "Autoplay Game Trailer"
+msgstr "Autoplay Game Trailer"

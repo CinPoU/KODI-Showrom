@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.games.showrom"
+       name="ShowRom"
+       version="0.1~alpha"
+       provider-name="CinPoU">
+  <requires>
+    <import addon="xbmc.python" version="2.25.0"/>
+    <import addon="script.module.kodi-six"/>
+  </requires>
+  <extension point="xbmc.python.script" library="default.py">
+    <provides>game</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <language></language>
+    <platform>android freebsd ios linux osx windows</platform>                                          
+    <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
+    <forum></forum>
+    <website>https://github.com/CinPoU/KODI-Showrom</website>
+    <source>https://github.com/CinPoU/KODI-Showrom</source>
+    <assets>
+        <icon>resources/icon.png</icon>
+        <fanart>resources/fanart.png</fanart>
+    </assets>
+  </extension>
+</addon>

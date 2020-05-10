@@ -1,0 +1,330 @@
+<window>                   
+	<allowoverlay>no</allowoverlay>
+    <defaultcontrol always="true">250</defaultcontrol>
+
+    <coordinates>
+            <system>1</system>
+            <posx>0</posx>
+            <posy>0</posy>
+    </coordinates>
+    
+	<views>50</views>
+    
+    <controls>
+    	
+		<!-- Background -->
+		<control type="image">
+		    <description>main background image</description>
+		    <posx>0</posx>
+		    <posy>0</posy>
+		    <width>1920</width>
+		    <height>1080</height>
+			<texture background="true">background.jpg</texture>
+		</control> 
+		<control type="image" id="74">
+		    <description>background image</description>
+		    <posx>0</posx>
+		    <posy>0</posy>
+		    <width>1920</width>
+		    <height>1080</height>
+			<fadetime>100</fadetime>
+			<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+		</control>			
+  		<control type="image"> 
+  		    <description>menu background image</description>
+  		    <posx>0</posx>
+  		    <posy>0</posy>
+  		    <width>1920</width>
+  		    <height>780</height>
+			<texture background="true" colordiffuse="CC000000">mainmenu-background.png</texture>
+  		</control> 
+		
+		<!-- gamelist groups -->
+		<control type="group" id="200">
+			<posx>0</posx>
+			<posy>780</posy>
+			
+    		<control type="image"> 
+    		    <description>menu background image</description>
+    		    <posx>0</posx>
+    		    <posy>0</posy>
+    		    <width>1920</width>
+    		    <height>2</height>
+				<texture background="true" colordiffuse="FFFFFFFF">mainmenu-background.png</texture>
+    		</control>
+    		<control type="image"> 
+    		    <description>menu background image</description>
+    		    <posx>0</posx>
+    		    <posy>0</posy>
+    		    <width>1920</width>
+    		    <height>300</height>
+				<texture background="true" colordiffuse="AAFFFFFF">mainmenu-background.png</texture>
+    		</control>
+            
+			<!-- gamelist 50 -->
+			<control type="group">
+				<posx>0</posx>
+				<posy>0</posy>				
+				<control type="wraplist" id="250">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>1920</width>
+					<height>300</height>
+                    <colordiffuse>77FFFFFF</colordiffuse>
+					<onleft>50</onleft>
+					<onright>50</onright>
+					<onup>60</onup>					
+					<ondown>60</ondown>
+					<orientation>horizontal</orientation>
+					<focusposition>1</focusposition>
+					<viewtype label="Info Boxart">wrap</viewtype>
+					<pagecontrol>60</pagecontrol>
+					<movement>0</movement>
+					<scrolltime>450</scrolltime>
+					<preloaditems>10</preloaditems>
+					<itemlayout width="640" height="300">
+						<control type="image">
+							<posx>95</posx>
+							<posy>40</posy>
+							<width>450</width>
+							<height>220</height>								
+							<aspectratio align="center" aligny="center">keep</aspectratio>
+							<texture background="true" colordiffuse="CCFFFFFF">$INFO[ListItem.Art(clearlogo)]</texture>
+					        <visible>true</visible>								
+						</control>
+					</itemlayout>
+					<focusedlayout width="640" height="300">
+						<control type="image">
+							<posx>95</posx>
+							<posy>25</posy><!--view_50_image_focus_posy-->
+							<width>500</width>
+							<height>250</height>								
+							<aspectratio align="center" aligny="center">keep</aspectratio>
+							<texture background="true" colordiffuse="FFFFFFFF">$INFO[ListItem.Art(clearlogo)]</texture>
+					        <visible>true</visible>
+						</control> 
+					</focusedlayout>
+				</control> 
+			</control>
+		</control>
+		
+		<!-- Media -->
+		<control type="group" id="300">
+			<posx>0</posx>
+			<posy>0</posy>
+			
+    		<control type="image"> 
+    		    <description>TV background</description>
+    		    <posx>600</posx>
+    		    <posy>300</posy>
+    		    <width>640</width>
+    		    <height>360</height>
+				<texture background="true" colordiffuse="FF000000">mainmenu-background.png</texture>
+    		</control>
+    		<control type="image" id="301"> 
+    		    <description>screenshot image</description>
+    		    <posx>600</posx>
+    		    <posy>300</posy>
+    		    <width>640</width>
+    		    <height>360</height>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
+				<texture background="true">$INFO[ListItem.Art(poster)]</texture>
+    		</control>
+			<control type="videowindow" id="310">
+				<description>video control</description>
+    		    <posx>600</posx>
+    		    <posy>300</posy>
+    		    <width>640</width>
+    		    <height>360</height>											
+				<visible>true</visible>
+			</control>
+    		<control type="image" id="302"> 
+    		    <description>bezel image</description>
+    		    <posx>600</posx>
+    		    <posy>300</posy>
+    		    <width>640</width>
+    		    <height>360</height>
+				<texture background="true">$INFO[ListItem.Art(landscape)]</texture>
+				<visible>false</visible>
+    		</control>
+    		<control type="image"> 
+    		    <description>TV image</description>
+    		    <posx>530</posx>
+    		    <posy>240</posy>
+    		    <width>780</width>
+    		    <height>510</height>
+				<texture background="true">bezel.png</texture>
+    		</control>
+    		<control type="image" id="304"> 
+    		    <description>cartbridge image</description>
+    		    <posx>90</posx>
+    		    <posy>300</posy>
+    		    <width>260</width>
+    		    <height>260</height>
+				<aspectratio align="left" aligny="top">keep</aspectratio>
+				<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+    		</control>
+    		<control type="image" id="303"> 
+    		    <description>cover image</description>
+    		    <posx>20</posx>
+    		    <posy>380</posy>
+    		    <width>400</width>
+    		    <height>350</height>
+				<aspectratio align="right" aligny="bottom">keep</aspectratio>
+				<texture background="true">$INFO[ListItem.ActualIcon]</texture>
+    		</control>
+    	</control>
+        
+
+		
+		<!-- Infos -->
+		<control type="group" id="400">
+			<posx>1400</posx>
+			<posy>0</posy> 
+  		    <width>500</width>
+  		    <height>800</height>
+    		<!-- ClearLogo -->
+            <control type="image"> 
+    		    <description>cartbridge image</description>
+    		    <posx>0</posx>
+    		    <posy>30</posy>
+    		    <width>500</width>
+    		    <height>250</height>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
+				<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+    		</control>
+            <!-- Rating -->
+            <control type="image" id="402"> 
+    		    <posx>290</posx>
+    		    <posy>300</posy>
+    		    <width>195</width>
+    		    <height>35</height>
+				<aspectratio align="left" aligny="center">keep</aspectratio>
+				<texture background="true">$INFO[ListItem.Property(ratingpath)]</texture>
+    		</control>
+            <!-- Date -->
+            <control type="image"> 
+    		    <posx>450</posx>
+    		    <posy>350</posy>
+    		    <width>40</width>
+    		    <height>40</height>
+				<texture background="true">game_info_releasedate.png</texture>
+    		</control>
+			<control type="label">
+				<description>Year txt</description>
+				<posx>400</posx>
+				<posy>350</posy>
+				<width>400</width>
+				<height>40</height>
+				<label>$INFO[ListItem.Property(rating)]</label>
+				<align>right</align>
+				<aligny>center</aligny>
+				<font>font13</font>
+				<textcolor>FFFFFFFF</textcolor>
+			</control>
+            <!-- Publisher -->
+            <control type="image"> 
+    		    <posx>450</posx>
+    		    <posy>420</posy>
+    		    <width>40</width>
+    		    <height>40</height>
+				<texture background="true">game_info_publisher.png</texture>
+    		</control>
+			<control type="label">
+				<description>Year txt</description>
+				<posx>400</posx>
+				<posy>420</posy>
+				<width>420</width>
+				<height>40</height>
+				<label>$INFO[ListItem.Property(studio)]</label>
+				<align>right</align>
+				<aligny>center</aligny>
+				<font>font13</font>
+				<textcolor>FFFFFFFF</textcolor>
+			</control>
+            <!-- Developer -->
+            <control type="image"> 
+    		    <posx>450</posx>
+    		    <posy>480</posy>
+    		    <width>40</width>
+    		    <height>40</height>
+				<texture background="true">game_info_developer.png</texture>
+    		</control>
+			<control type="label">
+				<description>Year txt</description>
+				<posx>400</posx>
+				<posy>480</posy>
+				<width>420</width>
+				<height>40</height>
+				<label>$INFO[ListItem.Property(writer)]</label>
+				<align>right</align>
+				<aligny>center</aligny>
+				<font>font13</font>
+				<textcolor>FFFFFFFF</textcolor>
+			</control>
+            <!-- Genre -->
+            <control type="image"> 
+    		    <posx>450</posx>
+    		    <posy>540</posy>
+    		    <width>40</width>
+    		    <height>40</height>
+				<texture background="true">game_info_genre.png</texture>
+    		</control>
+			<control type="label">
+				<description>Year txt</description>
+				<posx>400</posx>
+				<posy>540</posy>
+				<width>400</width>
+				<height>40</height>
+				<label>$INFO[ListItem.Property(genre)]</label>
+				<align>right</align>
+				<aligny>center</aligny>
+				<font>font13</font>
+				<textcolor>FFFFFFFF</textcolor>
+			</control>
+            <!-- Players -->
+            <control type="image"> 
+    		    <posx>450</posx>
+    		    <posy>600</posy>
+    		    <width>40</width>
+    		    <height>40</height>
+				<texture background="true">game_info_players.png</texture>
+    		</control>
+			<control type="label">
+				<description>Year txt</description>
+				<posx>400</posx>
+				<posy>600</posy>
+				<width>400</width>
+				<height>40</height>
+				<label>$INFO[ListItem.Property(episode)]</label>
+				<align>right</align>
+				<aligny>center</aligny>
+				<font>font13</font>
+				<textcolor>FFFFFFFF</textcolor>
+			</control>
+            <!-- Playcount -->
+            <control type="image"> 
+    		    <posx>450</posx>
+    		    <posy>660</posy>
+    		    <width>40</width>
+    		    <height>40</height>
+				<texture background="true">game_info_playcount.png</texture>
+    		</control>
+			<control type="label">
+				<description>Year txt</description>
+				<posx>400</posx>
+				<posy>660</posy>
+				<width>400</width>
+				<height>40</height>
+				<label>$INFO[ListItem.Property(playcount)]</label>
+				<align>right</align>
+				<aligny>center</aligny>
+				<font>font13</font>
+				<textcolor>FFFFFFFF</textcolor>
+			</control>
+            
+    	</control>       
+                        
+    </controls>
+
+</window>

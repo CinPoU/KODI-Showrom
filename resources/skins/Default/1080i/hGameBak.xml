@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<window>		
+	<allowoverlay>no</allowoverlay>
+	<defaultcontrol always="false">50</defaultcontrol>
+	<coordinates>
+		<system>1</system>
+		<posx>0</posx>
+		<posy>0</posy>
+	</coordinates>
+	<views>50,52</views>
+	<controls>
+	
+		<!-- background --> 
+		<control type="image">
+			<depth>DepthBackground</depth>
+			<left>0</left>
+			<top>0</top>
+			<width>1920</width>
+			<height>1080</height>
+			<aspectratio>scale</aspectratio>
+			<texture background="true">background.jpg</texture>
+		</control>
+		<control type="image" id="75">
+		    <description>background image</description>
+		    <posx>0</posx>
+		    <posy>0</posy>
+		    <width>1920</width>
+		    <height>1080</height>
+			<fadetime>100</fadetime>
+			<texture background="true">$INFO[ListItem.Art(background)]</texture>
+			<visible>!Control.IsVisible(53)</visible>
+		</control>
+		
+		<!-- gamelist groups -->
+		<control type="group" id="200">
+			
+			<!-- gamelist 50 -->
+			<control type="group">
+				<posx>0</posx>
+				<posy>0</posy>				
+				<control type="fixedlist" id="50">
+					<posx>-115</posx>
+					<posy>350</posy>
+					<width>1420</width>
+					<height>300</height>
+					<onleft>50</onleft>
+					<onright>50</onright>
+					<onup>2</onup>					
+					<ondown>60</ondown>
+					<orientation>horizontal</orientation>
+					<focusposition>4</focusposition>
+					<viewtype label="Info Boxart">wrap</viewtype>
+					<pagecontrol>60</pagecontrol>
+					<movement>0</movement>
+					<scrolltime>450</scrolltime>
+					<preloaditems>10</preloaditems>
+					<itemlayout width="170" height="300">
+						<control type="group">
+							<control type="image">
+								<posx>0</posx>
+								<posy>15</posy>
+								<width>160</width>
+								<height>240</height>								
+								<aspectratio align="center" aligny="bottom">keep</aspectratio>
+								<bordersize>2</bordersize>
+								<texture background="true">$INFO[ListItem.ActualIcon]</texture>								
+							</control>
+							<control type="image">
+								<posx>-5</posx>
+								<posy>240</posy>
+								<width>15</width>
+								<height>15</height>
+								<texture>rcb-star.png</texture>					
+								<visible>!String.IsEmpty(ListItem.Property(isfavorite))</visible>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout width="160" height="240">
+						<control type="image">
+							<posx>-5</posx>
+							<posy>0</posy><!--view_50_image_focus_posy-->
+							<width>160</width>
+							<height>240</height>
+							<aspectratio align="center" aligny="bottom">keep</aspectratio>
+							<bordersize>2</bordersize><!--bordersize-->
+							<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+							<bordertexture border="2" colordiffuse="$INFO[Skin.String(rcb_thumb_border)]">rcb-thumbnail-border.png</bordertexture>
+							<animation reversible="false" effect="zoom" end="120" center="auto" time="150">Focus</animation>
+						</control>
+						<control type="image">
+							<posx>-25</posx>
+							<posy>250</posy>
+							<width>15</width>
+							<height>15</height>
+							<texture>rcb-star.png</texture>
+							<visible>!String.IsEmpty(ListItem.Property(isfavorite))</visible>
+							<animation reversible="false" effect="fade" start="0" end="100" time="150">Focus</animation>
+						</control>
+						<control type="button">
+							<description>Autoplay video</description>
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>0</width>
+							<height>0</height>
+							<texturefocus></texturefocus>
+							<texturenofocus></texturenofocus>							
+							<visible>!String.IsEmpty(ListItem.Property(autoplayvideomain)) + !String.IsEmpty(ListItem.Property(gameplaymain))</visible>
+							<animation delay="500" effect="fade" start="100" end="100">Focus</animation>
+							<onfocus condition="!String.IsEmpty(ListItem.Property(autoplayvideomain)) + !String.IsEmpty(ListItem.Property(gameplaymain))">XBMC.PlayMedia($ESCINFO[ListItem.Property(gameplaymain)],1)</onfocus>
+						</control>
+					</focusedlayout>
+				</control>
+				<control type="scrollbar" id="60">
+					<!-- Note: comments below are needed for skin convert scripts -->
+					<posx>400</posx>
+					<posy>10r</posy><!--scrollbar_h_posy-->
+					<width>600</width>
+					<height>5</height><!--scrollbar_h_height-->
+					<texturesliderbackground border="14,0,14,0" colordiffuse="$INFO[Skin.String(rcb_scrollbar_background)]">rcb-scrollbar-h-background.png</texturesliderbackground>
+					<texturesliderbar border="14,0,14,0" colordiffuse="$INFO[Skin.String(rcb_scrollbar_nofocus)]">rcb-scrollbar-h-nofocus.png</texturesliderbar>
+					<texturesliderbarfocus border="14,0,14,0" colordiffuse="$INFO[Skin.String(rcb_scrollbar_focus)]">rcb-scrollbar-h-focus.png</texturesliderbarfocus>
+					<textureslidernib></textureslidernib>
+					<textureslidernibfocus></textureslidernibfocus>
+					<onup>50</onup>
+					<ondown>500</ondown>
+					<showonepage>false</showonepage>
+					<orientation>horizontal</orientation>
+					<visible allowhiddenfocus="false">Control.IsVisible(50) + Skin.HasSetting(rcb_showScrollbars)</visible>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>70r</posy>
+					<width>1280</width>
+					<height>20</height>
+					<font>font30_title</font>
+					<aligny>center</aligny>
+					<textcolor>$INFO[Skin.String(rcb_text_heading)]</textcolor>
+					<align>center</align>
+					<label>[B]$INFO[ListItem.Label][/B]</label>
+					<visible>Control.IsVisible(50) + String.IsEmpty(ListItem.Art(clearlogo))</visible>
+					<animation effect="fade" start="0" end="100" time="0" delay="300" easing="out">Visible</animation>
+				</control>
+				<control type="image">
+					<posx>560</posx>
+					<posy>90r</posy>
+					<width>160</width>
+					<height>60</height>
+					<aspectratio align="center" aligny="bottom">keep</aspectratio>
+					<bordersize>2</bordersize>
+					<texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+					<fadetime>100</fadetime>
+					<visible>Control.IsVisible(50)</visible>
+				</control>
+				<control type="label">
+					<posx>20</posx>
+					<posy>45r</posy>
+					<width>280</width>
+					<height>20</height>
+					<font>font30_title</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>$INFO[Skin.String(rcb_text_heading)]</textcolor>
+					<label>[B]$INFO[ListItem.Property(console)][/B]</label>					
+					<visible>Control.IsVisible(50)</visible>
+				</control>					
+				<!-- extraImage1 -->
+				<control type="image">
+					<description>extraImage1</description>
+					<posx>25</posx>
+					<posy>70r</posy>
+					<width>90</width>
+					<height>60</height>						
+					<texture>$INFO[ListItem.Art(extraImage1)]</texture>
+					<fadetime>100</fadetime>
+					<visible>Control.IsVisible(50)</visible>					
+				</control>				
+				<!-- extraImage3 -->
+				<control type="image">
+					<description>extraImage3</description>
+					<posx>130</posx>
+					<posy>70r</posy>
+					<width>90</width>
+					<height>60</height>						
+					<texture>$INFO[ListItem.Art(extraImage3)]</texture>
+					<fadetime>100</fadetime>
+					<visible>Control.IsVisible(50)</visible>
+				</control>
+				
+				<control type="image">
+					<texture flipx="false" colordiffuse="$INFO[Skin.String(rcb_panel_info)]">rcb-panel-content.png</texture>
+					<!-- Note: comments below are needed for skin convert scripts -->
+					<posx>0</posx><!--view_50_panelcontent_posx-->
+					<posy>20</posy>	
+					<width>1280</width><!--view_50_panelcontent_width-->
+					<height>300</height>
+					<visible>Control.IsVisible(50)</visible>
+				</control>
+				
+				<control type="group" id="300">
+					<visible allowhiddenfocus="true">Control.IsVisible(50)</visible>
+					<posx>40</posx>
+					<posy>5</posy>
+					<control type="image" id="2000">
+						<description>gameinfo</description>
+						<posx>25</posx>
+						<posy>25</posy>
+						<width>540</width>
+						<height>280</height>
+						<aspectratio>keep</aspectratio>
+						<visible>!Player.HasVideo | String.IsEmpty(ListItem.Property(gameplaymain))</visible>
+						<texture>$INFO[ListItem.Art(gameinfobig)]</texture>
+						<fadetime>100</fadetime>
+						<bordersize>2</bordersize>
+					</control>
+					<!-- videowindowbig -->
+					<control type="videowindow" id="2300">
+						<description>video control</description>
+						<posx>25</posx>
+						<posy>25</posy>
+						<width>540</width>
+						<height>280</height>												
+						<visible>!String.IsEmpty(ListItem.Property(videosizebig)) + !String.IsEmpty(ListItem.Property(gameplaymain))</visible>
+					</control>
+					<control type="button">
+						<description>click absorber</description>
+						<posx>25</posx>
+						<posy>25</posy>
+						<width>540</width>
+						<height>280</height>
+						<texturefocus></texturefocus>
+						<texturenofocus></texturenofocus>
+						<visible>!String.IsEmpty(ListItem.Property(videosizebig))</visible>
+					</control>
+					
+					<!-- gameinfoupperleft -->
+					<control type="image" id="2400">
+						<description>gameinfoupperleft</description>
+						<posx>25</posx>
+						<posy>25</posy>
+						<width>265</width>
+						<height>135</height>
+						<visible>[!Player.HasVideo | String.IsEmpty(ListItem.Property(gameplaymain))] | !String.IsEmpty(ListItem.Property(videosizesmall))</visible>
+						<texture>$INFO[ListItem.Art(gameinfoupperleft)]</texture>
+						<fadetime>100</fadetime>
+						<bordersize>2</bordersize>
+						<aspectratio>scale</aspectratio>
+					</control>
+					<!-- gameinfoupperright -->
+					<control type="image" id="2500">
+						<description>gameinfoupperright</description>
+						<posx>295</posx>
+						<posy>25</posy>
+						<width>265</width>
+						<height>135</height>
+						<visible>[!Player.HasVideo | String.IsEmpty(ListItem.Property(gameplaymain))] | !String.IsEmpty(ListItem.Property(videosizesmall))</visible>
+						<texture>$INFO[ListItem.Art(gameinfoupperright)]</texture>
+						<fadetime>100</fadetime>
+						<bordersize>2</bordersize>
+						<aspectratio>scale</aspectratio>
+					</control>
+					<!-- gameinfolowerleft -->
+					<control type="image" id="2600">
+						<description>gameinfolowerleft</description>
+						<posx>25</posx>
+						<posy>170</posy>
+						<width>265</width>
+						<height>135</height>
+						<texture>$INFO[ListItem.Art(gameinfolowerleft)]</texture>
+						<fadetime>100</fadetime>
+						<bordersize>2</bordersize>
+						<aspectratio>scale</aspectratio>
+					</control>
+					<!-- gameinfolowerright -->
+					<control type="image" id="2700">
+						<animation delay="200" effect="fade" start="0" end="100">Visible</animation>
+						<description>gameinfolowerright</description>
+						<posx>295</posx>
+						<posy>170</posy>
+						<width>265</width>
+						<height>135</height>
+						<visible>!Player.HasVideo | String.IsEmpty(ListItem.Property(gameplaymain))</visible>
+						<texture>$INFO[ListItem.Art(gameinfolowerright)]</texture>
+						<fadetime>100</fadetime>
+						<bordersize>2</bordersize>
+						<aspectratio>scale</aspectratio>
+					</control>
+					
+					<!-- gameinfoupper -->
+					<control type="image" id="2710">
+						<description>gameinfoupper</description>
+						<posx>25</posx>
+						<posy>25</posy>
+						<width>537</width>
+						<height>135</height>
+						<texture>$INFO[ListItem.Art(gameinfoupper)]</texture>
+						<fadetime>100</fadetime>
+						<bordersize>2</bordersize>
+						<aspectratio>scale</aspectratio>
+					</control>
+					<!-- gameinfolower -->
+					<control type="image" id="2720">
+						<description>gameinfolower</description>
+						<posx>25</posx>
+						<posy>170</posy>
+						<width>537</width>
+						<height>135</height>
+						<visible>[!Player.HasVideo | String.IsEmpty(ListItem.Property(gameplaymain))]</visible>
+						<texture>$INFO[ListItem.Art(gameinfolower)]</texture>
+						<fadetime>100</fadetime>
+						<bordersize>2</bordersize>
+						<aspectratio>scale</aspectratio>
+					</control>
+					<!-- gameinfoleft -->
+					<control type="image" id="2730">
+						<description>gameinfoleft</description>
+						<posx>25</posx>
+						<posy>25</posy>
+						<width>265</width>
+						<height>280</height>
+						<visible>[!Player.HasVideo | String.IsEmpty(ListItem.Property(gameplaymain))]</visible>
+						<texture>$INFO[ListItem.Art(gameinfoleft)]</texture>
+						<fadetime>100</fadetime>
+						<bordersize>2</bordersize>
+						<aspectratio>scale</aspectratio>
+					</control>
+					<!-- gameinforight -->
+					<control type="image" id="2740">
+						<description>gameinforight</description>
+						<posx>295</posx>
+						<posy>25</posy>
+						<width>265</width>
+						<height>280</height>
+						<visible>!Player.HasVideo | String.IsEmpty(ListItem.Property(gameplaymain))</visible>
+						<texture>$INFO[ListItem.Art(gameinforight)]</texture>
+						<fadetime>100</fadetime>
+						<bordersize>2</bordersize>
+						<aspectratio>scale</aspectratio>
+					</control>
+					
+					<!-- videowindowsmall -->
+					<control type="videowindow" id="2800">
+						<description>video control</description>
+						<posx>295</posx>
+						<posy>170</posy>
+						<width>265</width>
+						<height>135</height>
+						<visible>!String.IsEmpty(ListItem.Property(videosizesmall)) + !String.IsEmpty(ListItem.Property(gameplaymain))</visible>
+					</control>
+					
+					<control type="button">
+						<description>click absorber</description>
+						<posx>295</posx>
+						<posy>170</posy>
+						<width>265</width>
+						<height>135</height>
+						<texturefocus></texturefocus>
+						<texturenofocus></texturenofocus>
+						<visible>!String.IsEmpty(ListItem.Property(videosizesmall))</visible>
+					</control>					
+					
+					<!-- Year -->
+					<control type="label">
+						<description>Year txt</description>
+						<posx>610r</posx>
+						<posy>25</posy>
+						<width>160</width>
+						<height>25</height>
+						<label>$ADDON[script.games.rom.collection.browser 32400]:</label>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>font13</font>
+						<textcolor>$INFO[Skin.String(rcb_text_label)]</textcolor>
+					</control>
+					<control type="label">
+						<description>Year Value</description>
+						<posx>450r</posx>
+						<posy>25</posy>
+						<width>300</width>
+						<height>25</height>
+						<label fallback="416">$INFO[ListItem.Property(year)]</label>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>font13</font>
+						<scroll>true</scroll>
+						<textcolor>$INFO[Skin.String(rcb_text_value)]</textcolor>
+					</control>
+					
+					<!-- Genre -->
+					<control type="label">
+						<description>Genre txt</description>
+						<posx>610r</posx>
+						<posy>55</posy>
+						<width>160</width>
+						<height>25</height>
+						<label>$ADDON[script.games.rom.collection.browser 32401]:</label>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>font13</font>
+						<textcolor>$INFO[Skin.String(rcb_text_label)]</textcolor>
+					</control>
+					<control type="label">
+						<description>Genre Value</description>
+						<posx>450r</posx>
+						<posy>55</posy>
+						<width>370</width>
+						<height>25</height>
+						<label fallback="416">$INFO[ListItem.Property(genre)]</label>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>font13</font>
+						<scroll>true</scroll>
+						<textcolor>$INFO[Skin.String(rcb_text_value)]</textcolor>
+					</control>
+					
+					<!-- Publisher -->
+					<control type="label">
+						<description>Publisher txt</description>
+						<posx>610r</posx>
+						<posy>85</posy>
+						<width>160</width>
+						<height>25</height>
+						<label>$ADDON[script.games.rom.collection.browser 32402]:</label>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>font13</font>
+						<textcolor>$INFO[Skin.String(rcb_text_label)]</textcolor>
+					</control>
+					<control type="label">
+						<description>Publisher Value</description>
+						<posx>450r</posx>
+						<posy>85</posy>
+						<width>370</width>
+						<height>25</height>
+						<label fallback="416">$INFO[ListItem.Property(publisher)]</label>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>font13</font>
+						<scroll>true</scroll>
+						<textcolor>$INFO[Skin.String(rcb_text_value)]</textcolor>
+					</control>
+					
+					<!-- Developer -->
+					<control type="label">
+						<description>Developer txt</description>
+						<posx>610r</posx>
+						<posy>115</posy>
+						<width>160</width>
+						<height>25</height>
+						<label>$ADDON[script.games.rom.collection.browser 32403]:</label>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>font13</font>
+						<textcolor>$INFO[Skin.String(rcb_text_label)]</textcolor>
+					</control>
+					<control type="label">
+						<description>Developer Value</description>
+						<posx>450r</posx>
+						<posy>115</posy>
+						<width>370</width>
+						<height>25</height>
+						<label fallback="416">$INFO[ListItem.Property(developer)]</label>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>font13</font>
+						<scroll>true</scroll>
+						<textcolor>$INFO[Skin.String(rcb_text_value)]</textcolor>
+					</control>
+					
+					<!-- extraImage2 -->
+					<!--<control type="image">
+						<description>extraImage2</description>
+						<posx>590</posx>
+						<posy>15</posy>
+						<width>80</width>
+						<height>60</height>						
+						<texture>$INFO[ListItem.Art(extraImage2)]</texture>
+						<visible>Control.IsVisible(50)</visible>
+					</control>-->
+					
+					<!-- game / console description -->
+					<control type="textbox" id="2100">
+						<description>Plot</description>
+						<posx>610r</posx>
+						<posy>148</posy>
+						<width>530</width>
+						<height>161</height><!--view_50_textbox_height-->
+						<textcolor>$INFO[Skin.String(rcb_text_value)]</textcolor>
+						<align>justify</align>
+						<font>font12</font>
+						<label>$INFO[ListItem.Property(plot)]</label>
+						<autoscroll time="3000" delay="10000" repeat="6000">True</autoscroll>
+					</control>
+				</control>
+			</control>
+		</control>
+			
+	</controls>
+</window>

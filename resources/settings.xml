@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+	<category label="30002">
+		<setting id="sr_setting_roms_path" type="folder" label="30020"/>
+		<setting id="sr_setting_media_dir" type="text" label="30021" default="media"/>
+		<setting id="sr_setting_region" type="select" label="30022" lvalues="30220|30221|30222" default="0"/>
+		<setting id="sr_setting_style_menu" type="select" label="30023" lvalues="30230|30231" default="0"/>
+		<setting id="sr_setting_style_game" type="select" label="30024" lvalues="30240|30241|30242" default="0"/>
+		<setting id="sr_setting_history" type="slider" label="30025" default="10" range="0,1,100" option="int"/>
+		<setting id="sr_setting_show_favs" type="bool" label="30026" default="true"/>
+		<setting id="sr_setting_autoplay_trailer" type="bool" label="30027" default="true"/>
+	</category>
+
+</settings>

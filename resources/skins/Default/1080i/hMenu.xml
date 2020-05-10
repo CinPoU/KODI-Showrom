@@ -1,0 +1,115 @@
+<window>                   
+	<allowoverlay>no</allowoverlay>
+    <defaultcontrol always="true">250</defaultcontrol>
+
+    <coordinates>
+            <system>1</system>
+            <posx>0</posx>
+            <posy>0</posy>
+    </coordinates>
+    
+	<views>50</views>
+    
+    <controls>
+    	
+		<!-- Background -->
+		<control type="image">
+		    <description>main background image</description>
+		    <posx>0</posx>
+		    <posy>0</posy>
+		    <width>1920</width>
+		    <height>1080</height>
+			<texture background="true">background.jpg</texture>
+		</control> 
+		<control type="image" id="74">
+		    <description>background image</description>
+		    <posx>0</posx>
+		    <posy>0</posy>
+		    <width>1920</width>
+		    <height>1080</height>
+			<fadetime>100</fadetime>
+			<texture>$INFO[ListItem.Art(background)]</texture>
+		</control> 
+		
+		<!-- gamelist groups -->
+		<control type="group" id="200">
+			<posx>0</posx>
+			<posy>440</posy>
+			
+    		<control type="image"> 
+    		    <description>menu background image</description>
+    		    <posx>0</posx>
+    		    <posy>0</posy>
+    		    <width>1920</width>
+    		    <height>200</height>
+				<texture background="true" colordiffuse="77FFFFFF">mainmenu-background.png</texture>
+    		</control>
+    		<control type="image"> 
+    		    <description>menu background image</description>
+    		    <posx>0</posx>
+    		    <posy>0</posy>
+    		    <width>1920</width>
+    		    <height>2</height>
+				<texture background="true" colordiffuse="FFFFFFFF">mainmenu-background.png</texture>
+    		</control>
+    		<control type="image"> 
+    		    <description>menu background image</description>
+    		    <posx>0</posx>
+    		    <posy>198</posy>
+    		    <width>1920</width>
+    		    <height>2</height>
+				<texture background="true" colordiffuse="FFFFFFFF">mainmenu-background.png</texture>
+    		</control>
+            
+			<!-- gamelist 50 -->
+			<control type="group">
+				<posx>0</posx>
+				<posy>0</posy>				
+				<control type="wraplist" id="250">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>1920</width>
+					<height>200</height>
+                    <colordiffuse>77FFFFFF</colordiffuse>
+					<onleft>50</onleft>
+					<onright>50</onright>
+					<onup>60</onup>					
+					<ondown>60</ondown>
+					<orientation>horizontal</orientation>
+					<focusposition>1</focusposition>
+					<viewtype label="Info Boxart">wrap</viewtype>
+					<pagecontrol>60</pagecontrol>
+					<movement>0</movement>
+					<scrolltime>450</scrolltime>
+					<preloaditems>10</preloaditems>
+					<itemlayout width="640" height="200">
+						<control type="image">
+							<posx>95</posx>
+							<posy>40</posy>
+							<width>450</width>
+							<height>120</height>								
+							<aspectratio align="center" aligny="center">keep</aspectratio>
+							<texture background="true" colordiffuse="CCFFFFFF">$INFO[ListItem.ActualIcon]</texture>
+					        <visible>true</visible>								
+						</control>
+					</itemlayout>
+					<focusedlayout width="640" height="200">
+						<control type="image">
+							<posx>95</posx>
+							<posy>25</posy><!--view_50_image_focus_posy-->
+							<width>500</width>
+							<height>150</height>								
+							<aspectratio align="center" aligny="center">keep</aspectratio>
+							<texture background="true" colordiffuse="FFFFFFFF">$INFO[ListItem.ActualIcon]</texture>
+					        <visible>true</visible>
+						</control> 
+					</focusedlayout>
+				</control> 
+			</control>
+		</control>
+        
+        
+                        
+    </controls>
+
+</window>
